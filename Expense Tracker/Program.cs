@@ -8,6 +8,8 @@ builder.Services.AddControllersWithViews();
 
 //DI
 builder.Services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("conn")));
+var key = Environment.GetEnvironmentVariable("KEY");
+Syncfusion.Licensing.SyncfusionLicenseProvider.RegisterLicense(key);
 
 var app = builder.Build();
 
@@ -24,6 +26,6 @@ app.UseAuthorization();
 
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Home}/{action=Index}/{id?}");
+    pattern: "{controller=Category}/{action=Index}/{id?}");
 
 app.Run();
