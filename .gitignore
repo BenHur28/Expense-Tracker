@@ -62,7 +62,6 @@ BenchmarkDotNet.Artifacts/
 project.lock.json
 project.fragment.lock.json
 artifacts/
-Peoplelist/appsettings.json
 .env
 *.json
 
@@ -364,3 +363,5 @@ MigrationBackup/
 
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
+Expense Tracker/appsettings.json
+Expense Tracker/appsettings.Development.json
