@@ -6,11 +6,12 @@
 
 <div class="row">
     <div class="col-md-7">
-        <ejs-grid id="categories" dataSource="@Model" gridLines="None">
+        <ejs-grid id="categories" dataSource="@Model" gridLines="None" allowSorting="true" allowPaging="true">
+            <e-grid-pagesettings pageSize="7"/>
             <e-grid-columns>
                 <e-grid-column headerText="Categry" field="TitleWithIcon"></e-grid-column>
-                <e-grid-column headerText="Type" template="#template"></e-grid-column>
-                <e-grid-column headerText="Actions"></e-grid-column>
+                <e-grid-column headerText="Type" template="#iconTemplate" width="150px"></e-grid-column>
+                <e-grid-column headerText="Actions" template="#actionTemplate" width="100px"></e-grid-column>
             </e-grid-columns>
         </ejs-grid>
     </div>
@@ -21,10 +22,18 @@
     </div>
 </div>
 
-<script id="template" type="text/x-template">
+<script id="iconTemplate" type="text/x-template">
     ${if(Type=="Income")}
         <span class="badge bg-success">${Type}</span>
     ${else}
         <span class="badge bg-danger">${Type}</span>
     ${/if}
+</script>
+
+<script id="actionTemplate" type="text/x-template">
+    <div class="d-flex flex-row justify-content-start"> 
+        <a class="btn btn-sm no-a-decoration" href="/Category/AddOrEdit/${CategoryId}">
+        <i class="fa-solid fa-pen fa-lg"> </i>
+        </a>
+    </div>
 </script>
