@@ -65,6 +65,7 @@ artifacts/
 .env
 *.json
 Expense Tracker\appsettings.json
+Expense Tracker\Properties\launchSettings.json
 
 # ASP.NET Scaffolding
 ScaffoldingReadMe.txt
