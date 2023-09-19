@@ -25,8 +25,8 @@ namespace Expense_Tracker.Controllers
             return View(await applicationDbContext.ToListAsync());
         }
 
-        // GET: Transaction/Create
-        public IActionResult Create()
+        // GET: Transaction/AddOrEdit
+        public IActionResult AddOrEdit()
         {
             ViewData["CategoryId"] = new SelectList(_context.Categories, "CategoryId", "CategoryId");
             return View();
@@ -37,7 +37,7 @@ namespace Expense_Tracker.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("TransactionId,CategoryId,Amount,Note,Date")] Transaction transaction)
+        public async Task<IActionResult> AddOrEdit([Bind("TransactionId,CategoryId,Amount,Note,Date")] Transaction transaction)
         {
             if (ModelState.IsValid)
             {
