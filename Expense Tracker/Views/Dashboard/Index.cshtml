@@ -8,7 +8,6 @@
 @*Summary Widgets*@
 
 <div class=" row mb-4">
-
     <div class="col-md-4">
         <div class="d-flex flex-row widget summary income">
             <div class="d-flex flex-col justify-content-center p-5"> 
@@ -20,7 +19,6 @@
             </div>
         </div>
     </div>
-
     <div class="col-md-4">
         <div class="d-flex flex-row widget summary expense">
             <div class="d-flex flex-col justify-content-center p-5">
@@ -44,4 +42,19 @@
             </div>
         </div>
     </div>
+</div>
+
+@*Donut and Spline Chart*@
+
+<div class="row mb-4">
+    <div class="col-md-4">
+        <div class="widget chart">
+            <div class="title p-4">
+                <h5 class="fw-bold">Expense by Category</h5>
+                 <ejs-accumulationchart id="donutChart" background="#1a222b"> </ejs-accumulationchart>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4"></div>
+    <div class="col-md-4"></div>
 </div>
