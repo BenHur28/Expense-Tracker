@@ -56,6 +56,16 @@ namespace Expense_Tracker.Controllers
                     income = k.Sum(l => l.Amount)
                 }).ToList();
 
+            //Income
+            List<SplineChartData> ExpenseSummary = SelectedTransactions
+                .Where(i => i.Category.Type == "Expense")
+                .GroupBy(j => j.Date)
+                .Select(k => new SplineChartData()
+                {
+                    day = k.First().Date.ToString("dd-MMM"),
+                    expense = k.Sum(l => l.Amount)
+                }).ToList();
+
             return View();
         }
     }
