@@ -56,7 +56,7 @@ namespace Expense_Tracker.Controllers
                     income = k.Sum(l => l.Amount)
                 }).ToList();
 
-            //Income
+            //Expense
             List<SplineChartData> ExpenseSummary = SelectedTransactions
                 .Where(i => i.Category.Type == "Expense")
                 .GroupBy(j => j.Date)
@@ -65,6 +65,23 @@ namespace Expense_Tracker.Controllers
                     day = k.First().Date.ToString("dd-MMM"),
                     expense = k.Sum(l => l.Amount)
                 }).ToList();
+
+            //Combine Income and Expense
+            string[] last7Days = Enumerable.Range(0, 7)
+                .Select(i => StartDate.AddDays(i).ToString("dd-MMM"))
+                .ToArray();
+
+            ViewBag.SplineChartData = from day in last7Days
+                                      join income in IncomeSummary on day equals income.day into dayIncomeJoined
+                                      from income in dayIncomeJoined.DefaultIfEmpty()
+                                      join expense in ExpenseSummary on day equals expense.day into expenseJoined
+                                      from expense in expenseJoined.DefaultIfEmpty()
+                                      select new
+                                      {
+                                          day = day,
+                                          income = income == null ? 0 : income.income,
+                                          expense = expense == null ? 0 : expense.expense,
+                                      };
 
             return View();
         }
