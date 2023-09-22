@@ -32,6 +32,21 @@
 
 <ejs-sidebar id="sidebar" closeOnDocumentClick="false" width="290px">
     <e-content-template>
+
+        <div class="logo-wrapper">
+            <div class="app-logo">
+                <img src="~/logo.png" />
+            </div>
+        </div>
+
+        <div class="profile-wrapper">
+            <img class="profile-pic" src="~/pfp.jpg" />
+            <div class="titles d-flex flex-column ps-3">
+                <h6 class="mb-0">Wallet App</h6>
+                <span class="text-muted">Ben Hur</span>
+            </div>
+        </div>
+
         <ejs-menu id="menu" items="menuItems" orientation="Vertical"></ejs-menu>
     </e-content-template>
 </ejs-sidebar>
